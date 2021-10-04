@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "polyrpc/dspoly";
+
+package dspoly;
+
+service DSPoly {
+    rpc Add(PolynomialTuple) returns (Polynomial) {}
+    rpc Sub(PolynomialTuple) returns (Polynomial) {}
+    rpc Mul(PolynomialTuple) returns (Polynomial) {}
+}
+
+message Polynomial {
+    repeated double coefficients = 1;
+}
+
+message PolynomialTuple {
+    repeated Polynomial polys = 1;
+}
